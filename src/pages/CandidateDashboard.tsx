@@ -123,11 +123,15 @@ const CandidateDashboard = () => {
             <Badge variant="secondary">Candidate Portal</Badge>
           </div>
           <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm">My Profile</Button>
-            <Button size="sm" className="shadow-orange">
-              <Search className="w-4 h-4 mr-2" />
-              Browse Jobs
-            </Button>
+            <Link to="/candidate/documents">
+              <Button variant="outline" size="sm">Documents</Button>
+            </Link>
+            <Link to="/candidate/job-browser">
+              <Button size="sm" className="shadow-orange">
+                <Search className="w-4 h-4 mr-2" />
+                Browse Jobs
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -154,7 +158,9 @@ const CandidateDashboard = () => {
             </div>
           </div>
           <Progress value={profileCompletion} className="mb-4" />
-          <Button size="sm" variant="outline">Complete Profile</Button>
+          <Link to="/candidate/resume-builder">
+            <Button size="sm" variant="outline">Complete Profile</Button>
+          </Link>
         </Card>
 
         {/* Stats Grid */}
@@ -176,7 +182,9 @@ const CandidateDashboard = () => {
             <Card className="p-6 mb-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold">Recommended for You</h2>
-                <Button variant="ghost" size="sm">View All</Button>
+                <Link to="/candidate/job-browser">
+                  <Button variant="ghost" size="sm">View All</Button>
+                </Link>
               </div>
 
               <div className="space-y-4">
@@ -209,9 +217,11 @@ const CandidateDashboard = () => {
                     </div>
 
                     <div className="flex gap-2">
-                      <Button size="sm" className="flex-1 shadow-orange">
-                        Apply Now
-                      </Button>
+                      <Link to="/candidate/job-browser" className="flex-1">
+                        <Button size="sm" className="w-full shadow-orange">
+                          Apply Now
+                        </Button>
+                      </Link>
                       <Button size="sm" variant="outline">
                         Save
                       </Button>
@@ -275,9 +285,11 @@ const CandidateDashboard = () => {
                   <div className="font-bold mb-1">Technical Interview</div>
                   <div className="text-sm text-muted-foreground mb-2">TechCorp - Senior Developer</div>
                   <div className="text-sm font-medium">2:00 PM - 3:30 PM</div>
-                  <Button size="sm" variant="outline" className="w-full mt-3">
-                    Join Video Call
-                  </Button>
+                  <Link to="/candidate/interview-schedule">
+                    <Button size="sm" variant="outline" className="w-full mt-3">
+                      Join Video Call
+                    </Button>
+                  </Link>
                 </div>
 
                 <div className="p-4 rounded-lg bg-secondary">
@@ -315,27 +327,35 @@ const CandidateDashboard = () => {
                   <Progress value={60} />
                 </div>
               </div>
-              <Button size="sm" variant="outline" className="w-full mt-4">
-                Improve Profile
-              </Button>
+              <Link to="/candidate/resume-builder">
+                <Button size="sm" variant="outline" className="w-full mt-4">
+                  Improve Profile
+                </Button>
+              </Link>
             </Card>
 
             {/* Quick Actions */}
             <Card className="p-6">
               <h2 className="text-lg font-bold mb-4">Quick Actions</h2>
               <div className="space-y-2">
-                <Button variant="outline" className="w-full justify-start">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Update Resume
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <Search className="w-4 h-4 mr-2" />
-                  Job Alerts
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <MessageSquare className="w-4 h-4 mr-2" />
-                  Messages
-                </Button>
+                <Link to="/candidate/resume-builder" className="block">
+                  <Button variant="outline" className="w-full justify-start">
+                    <FileText className="w-4 h-4 mr-2" />
+                    Update Resume
+                  </Button>
+                </Link>
+                <Link to="/candidate/job-browser" className="block">
+                  <Button variant="outline" className="w-full justify-start">
+                    <Search className="w-4 h-4 mr-2" />
+                    Job Alerts
+                  </Button>
+                </Link>
+                <Link to="/candidate/online-tests" className="block">
+                  <Button variant="outline" className="w-full justify-start">
+                    <FileText className="w-4 h-4 mr-2" />
+                    Take Tests
+                  </Button>
+                </Link>
               </div>
             </Card>
           </div>

@@ -74,11 +74,15 @@ const ClientDashboard = () => {
             <Badge variant="secondary">Client Portal</Badge>
           </div>
           <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm">Settings</Button>
-            <Button size="sm" className="shadow-orange">
-              <Plus className="w-4 h-4 mr-2" />
-              Post New Job
-            </Button>
+            <Link to="/client/payment">
+              <Button variant="outline" size="sm">Billing</Button>
+            </Link>
+            <Link to="/client/create-job">
+              <Button size="sm" className="shadow-orange">
+                <Plus className="w-4 h-4 mr-2" />
+                Post New Job
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -113,7 +117,9 @@ const ClientDashboard = () => {
             <Card className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold">Active Job Postings</h2>
-                <Button variant="ghost" size="sm">View All</Button>
+                <Link to="/client/hiring-pipeline">
+                  <Button variant="ghost" size="sm">View All</Button>
+                </Link>
               </div>
 
               <div className="space-y-4">
@@ -167,9 +173,18 @@ const ClientDashboard = () => {
                       </div>
                     </div>
 
-                    <Button variant="ghost" size="sm" className="w-full mt-4">
-                      View Details <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
+                    <div className="flex gap-2 mt-4">
+                      <Link to="/client/hiring-pipeline" className="flex-1">
+                        <Button variant="ghost" size="sm" className="w-full">
+                          View Pipeline <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </Link>
+                      <Link to="/client/candidate-review" className="flex-1">
+                        <Button size="sm" className="w-full shadow-orange">
+                          Review
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -202,31 +217,47 @@ const ClientDashboard = () => {
                   </div>
                 ))}
               </div>
-              <Button variant="outline" size="sm" className="w-full mt-4">
-                View Calendar
-              </Button>
+              <Link to="/client/interview-scheduling">
+                <Button variant="outline" size="sm" className="w-full mt-4">
+                  View Calendar
+                </Button>
+              </Link>
             </Card>
 
             {/* Quick Actions */}
             <Card className="p-6">
               <h2 className="text-lg font-bold mb-4">Quick Actions</h2>
               <div className="space-y-2">
-                <Button variant="outline" className="w-full justify-start">
-                  <Plus className="w-4 h-4 mr-2" />
-                  Post New Job
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <Users className="w-4 h-4 mr-2" />
-                  Review Candidates
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Schedule Interview
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <DollarSign className="w-4 h-4 mr-2" />
-                  View Invoices
-                </Button>
+                <Link to="/client/create-job" className="block">
+                  <Button variant="outline" className="w-full justify-start">
+                    <Plus className="w-4 h-4 mr-2" />
+                    Post New Job
+                  </Button>
+                </Link>
+                <Link to="/client/candidate-review" className="block">
+                  <Button variant="outline" className="w-full justify-start">
+                    <Users className="w-4 h-4 mr-2" />
+                    Review Candidates
+                  </Button>
+                </Link>
+                <Link to="/client/interview-scheduling" className="block">
+                  <Button variant="outline" className="w-full justify-start">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Schedule Interview
+                  </Button>
+                </Link>
+                <Link to="/client/payment" className="block">
+                  <Button variant="outline" className="w-full justify-start">
+                    <DollarSign className="w-4 h-4 mr-2" />
+                    View Invoices
+                  </Button>
+                </Link>
+                <Link to="/client/documents" className="block">
+                  <Button variant="outline" className="w-full justify-start">
+                    <FileText className="w-4 h-4 mr-2" />
+                    Documents
+                  </Button>
+                </Link>
               </div>
             </Card>
           </div>

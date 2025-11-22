@@ -101,11 +101,15 @@ const RecruiterDashboard = () => {
             <Badge variant="secondary">Recruiter Portal</Badge>
           </div>
           <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm">My Profile</Button>
-            <Button size="sm" className="shadow-orange">
-              <Upload className="w-4 h-4 mr-2" />
-              Submit Candidate
-            </Button>
+            <Link to="/recruiter/documents">
+              <Button variant="outline" size="sm">Documents</Button>
+            </Link>
+            <Link to="/recruiter/submit-candidate">
+              <Button size="sm" className="shadow-orange">
+                <Upload className="w-4 h-4 mr-2" />
+                Submit Candidate
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -148,7 +152,9 @@ const RecruiterDashboard = () => {
             <Card className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold">Available Jobs</h2>
-                <Button variant="ghost" size="sm">Browse All</Button>
+                <Link to="/recruiter/job-marketplace">
+                  <Button variant="ghost" size="sm">Browse All</Button>
+                </Link>
               </div>
 
               <div className="space-y-4">
@@ -193,9 +199,11 @@ const RecruiterDashboard = () => {
                           {job.deadline} left
                         </div>
                       </div>
-                      <Button size="sm" className="shadow-orange">
-                        Submit Candidate
-                      </Button>
+                      <Link to="/recruiter/submit-candidate">
+                        <Button size="sm" className="shadow-orange">
+                          Submit Candidate
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 ))}
